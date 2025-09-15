@@ -1,7 +1,22 @@
+<h1>Amazon Visa to YNAB converter</h1>
+
+<p>
+  This tool converts the transaction export of the
+  <a href="https://www.amazon.de/cobrandcard/product/B0CN8XJB15" rel="nofollow">Amazon Visa card</a>
+  offered in Germany and Austria to a CSV file that can be imported by
+  <a href="https://www.ynab.com/" rel="nofollow">YNAB</a>.
+</p>
+
+<p>
+  The data is only processed within your browser and does not leave your computer.
+</p>
+
 <form (submit)="submit()">
-  <label for="file">File</label>
-  <input type="file" id="file" required #fileInput (change)="onChange()">
-  <div>
+  <div class="form-group">
+    <label for="file">File</label>
+    <input type="file" id="file" required #fileInput (change)="onChange()">
+  </div>
+  <div class="submit-row">
     <button type="submit">Process</button>
   </div>
 

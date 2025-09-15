@@ -5,3 +5,13 @@ table {
     padding: .5em;
   }
 }
+
+.form-group {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.submit-row {
+  margin-block-start: 1rem;
+}
