@@ -13,36 +13,35 @@
   </p>
 </header>
 
-<form (submit)="submit()">
-  <div class="form-group">
-    <label for="file">File</label>
-    <input type="file" id="file" required #fileInput (change)="onChange()">
+<button type="button" matButton="filled" (click)="fileInput.click()">
+  Pick File
+</button>
+
+<input type="file" id="file" required #fileInput (change)="onChange()" hidden>
+
+<div class="submit-row">
+  <button type="submit">Process</button>
+</div>
+
+@if (link(); as lnk) {
+  <p><a [href]="lnk" download>Download converted CSV</a></p>
+}
+
+@if (errors(); as err) {
+  <div>
+    <h2>Errors:</h2>
+    <pre>{{ err }}</pre>
   </div>
-  <div class="submit-row">
-    <button type="submit">Process</button>
-  </div>
+}
 
-  @if (link(); as lnk) {
-    <p><a [href]="lnk" download>Download converted CSV</a></p>
-  }
+@if (transactions(); as t) {
+  <table mat-table [dataSource]="t">
+    <mat-text-column [name]="'date'" [headerText]="'Text'"/>
+    <mat-text-column [name]="'payee'" [headerText]="'Payee'"/>
+    <mat-text-column [name]="'memo'" [headerText]="'Memo'" [dataAccessor]="getBlankMemo"/>
+    <mat-text-column [name]="'amount'" [headerText]="'Amount'"/>
 
-  @if (errors(); as err) {
-    <div>
-      <h2>Errors:</h2>
-      <pre>{{err}}</pre>
-    </div>
-  }
-
-  @if (transactions(); as t) {
-    <table mat-table [dataSource]="t">
-      <mat-text-column [name]="'date'" [headerText]="'Text'" />
-      <mat-text-column [name]="'payee'" [headerText]="'Payee'" />
-      <mat-text-column [name]="'memo'" [headerText]="'Memo'" [dataAccessor]="getBlankMemo" />
-      <mat-text-column [name]="'amount'" [headerText]="'Amount'" />
-
-      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-      <tr mat-row *matRowDef="let _; columns: tableColumns"></tr>
-    </table>
-  }
-
-</form>
+    <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+    <tr mat-row *matRowDef="let _; columns: tableColumns"></tr>
+  </table>
+}
