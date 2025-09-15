@@ -1,15 +1,17 @@
-<h1>Amazon Visa to YNAB converter</h1>
+<header>
+  <h1>Amazon Visa to YNAB converter</h1>
 
-<p>
-  This tool converts the transaction export of the
-  <a href="https://www.amazon.de/cobrandcard/product/B0CN8XJB15" rel="nofollow">Amazon Visa card</a>
-  offered in Germany and Austria to a CSV file that can be imported by
-  <a href="https://www.ynab.com/" rel="nofollow">YNAB</a>.
-</p>
+  <p>
+    This tool converts the transaction export of the
+    <a href="https://www.amazon.de/cobrandcard/product/B0CN8XJB15" rel="nofollow">Amazon Visa card</a>
+    offered in Germany and Austria to a CSV file that can be imported by
+    <a href="https://www.ynab.com/" rel="nofollow">YNAB</a>.
+  </p>
 
-<p>
-  The data is only processed within your browser and does not leave your computer.
-</p>
+  <p>
+    The data is only processed within your browser and does not leave your computer.
+  </p>
+</header>
 
 <form (submit)="submit()">
   <div class="form-group">
@@ -32,25 +34,14 @@
   }
 
   @if (transactions(); as t) {
-    <table>
-      <thead>
-      <tr>
-        <th>Date</th>
-        <th>Payee</th>
-        <th>Memo</th>
-        <th>Amount</th>
-      </tr>
-      </thead>
-      <tbody>
-        @for (transaction of t; track $index) {
-          <tr>
-            <td>{{transaction.date}}</td>
-            <td>{{transaction.payee}}</td>
-            <td></td>
-            <td>{{transaction.amount}}</td>
-          </tr>
-        }
-      </tbody>
+    <table mat-table [dataSource]="t">
+      <mat-text-column [name]="'date'" [headerText]="'Text'" />
+      <mat-text-column [name]="'payee'" [headerText]="'Payee'" />
+      <mat-text-column [name]="'memo'" [headerText]="'Memo'" [dataAccessor]="getBlankMemo" />
+      <mat-text-column [name]="'amount'" [headerText]="'Amount'" />
+
+      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+      <tr mat-row *matRowDef="let _; columns: tableColumns"></tr>
     </table>
   }
 

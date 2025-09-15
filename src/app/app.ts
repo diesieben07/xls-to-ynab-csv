@@ -1,10 +1,11 @@
 import {Component, ElementRef, inject, signal, viewChild} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {type RawTransaction, XlsProcessor} from './xls-processor';
+import {MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTextColumn} from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, MatTable, MatTextColumn, MatHeaderRowDef, MatRowDef, MatHeaderRow, MatRow],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -19,12 +20,20 @@ export class App {
     read: ElementRef
   });
 
+  protected readonly tableColumns: ReadonlyArray<keyof RawTransaction | 'memo'> = [
+    'date', 'amount', 'memo', 'payee'
+  ];
+
   onChange() {
     this.#processFile();
   }
 
   submit() {
     this.#processFile();
+  }
+
+  protected getBlankMemo() {
+    return "";
   }
 
   #processFile() {

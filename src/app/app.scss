@@ -1,3 +1,22 @@
+header {
+  display: flow-root;
+  background-color: var(--mat-sys-primary-container);
+}
+
+h1 {
+  font: var(--mat-sys-display-large);
+  text-align: center;
+  margin-inline: auto;
+  margin-block-start: 3rem;
+}
+
+header p {
+  font: var(--mat-sys-body-large);
+  max-width: 80ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
 table {
   border-collapse: collapse;
   td, th {
