@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@fontsource/sansation/400.css';
+@import '@fontsource/sansation/700.css';
+
+html {
+  font-family: 'Sansation', sans-serif;
+}
+
+input, button {
+  font-family: inherit;
+}
