@@ -1,6 +1,11 @@
-import {ApplicationConfig, inject, provideAppInitializer, provideZonelessChangeDetection} from '@angular/core';
-import {provideClientHydration, withEventReplay} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material/icon';
+import {
+  ApplicationConfig,
+  inject,
+  provideAppInitializer,
+  provideZonelessChangeDetection,
+} from '@angular/core';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,6 +18,6 @@ export const appConfig: ApplicationConfig = {
         .filter((fontSetClass) => fontSetClass !== 'material-icons')
         .concat(['material-symbols-rounded']);
       iconRegistry.setDefaultFontSetClass(...outlinedFontSetClasses);
-    })
-  ]
+    }),
+  ],
 };

@@ -3,14 +3,14 @@
 
   <p>
     This tool converts the transaction export of the
-    <a href="https://www.amazon.de/cobrandcard/product/B0CN8XJB15" rel="nofollow">Amazon Visa card</a>
+    <a href="https://www.amazon.de/cobrandcard/product/B0CN8XJB15" rel="nofollow"
+      >Amazon Visa card</a
+    >
     offered in Germany and Austria to a CSV file that can be imported by
     <a href="https://www.ynab.com/" rel="nofollow">YNAB</a>.
   </p>
 
-  <p>
-    The data is only processed within your browser and does not leave your computer.
-  </p>
+  <p>The data is only processed within your browser and does not leave your computer.</p>
 </header>
 <main>
   <div class="file-picker">
@@ -19,11 +19,11 @@
       Pick File
     </button>
     @if (fileName(); as f) {
-      <span>{{f}}</span>
+      <span>{{ f }}</span>
     }
   </div>
 
-  <input type="file" id="file" required #fileInput (change)="onChange()" hidden>
+  <input type="file" id="file" required #fileInput (change)="onChange()" hidden />
 
   @if (link(); as lnk) {
     <div class="download-row">
@@ -44,14 +44,13 @@
   @if (transactions(); as t) {
     <h2>Preview</h2>
     <table mat-table [dataSource]="t">
-      <mat-text-column [name]="'date'" [headerText]="'Text'"/>
-      <mat-text-column [name]="'payee'" [headerText]="'Payee'"/>
-      <mat-text-column [name]="'memo'" [headerText]="'Memo'" [dataAccessor]="getBlankMemo"/>
-      <mat-text-column [name]="'amount'" [headerText]="'Amount'"/>
+      <mat-text-column [name]="'date'" [headerText]="'Text'" />
+      <mat-text-column [name]="'payee'" [headerText]="'Payee'" />
+      <mat-text-column [name]="'memo'" [headerText]="'Memo'" [dataAccessor]="getBlankMemo" />
+      <mat-text-column [name]="'amount'" [headerText]="'Amount'" />
 
       <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
       <tr mat-row *matRowDef="let _; columns: tableColumns"></tr>
     </table>
   }
-
 </main>

@@ -4,18 +4,20 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
-@use "@fontsource-variable/roboto";
-@use "@fontsource-variable/material-symbols-rounded";
+@use '@fontsource-variable/roboto';
+@use '@fontsource-variable/material-symbols-rounded';
 
 html {
-  @include mat.theme((
-    color: (
-      primary: mat.$cyan-palette,
-      tertiary: mat.$orange-palette,
-    ),
-    typography: "Roboto Variable",
-    density: 0,
-  ));
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: 'Roboto Variable',
+      density: 0,
+    )
+  );
 }
 
 body {
@@ -35,8 +37,14 @@ body {
   margin: 0;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: "Roboto Variable", "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto Variable', 'Helvetica Neue', sans-serif;
+}
 
 a {
   color: var(--mat-sys-tertiary);
