@@ -1,5 +1,5 @@
 {
-  "name": "amazon-visa-xls-to-ynab-csv",
+  "name": "xls-to-ynab-csv",
   "version": "0.0.0",
   "scripts": {
     "prepare": "husky",
