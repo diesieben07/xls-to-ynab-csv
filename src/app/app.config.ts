@@ -1,13 +1,18 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import {ApplicationConfig, inject, provideAppInitializer, provideZonelessChangeDetection} from '@angular/core';
+import {provideClientHydration, withEventReplay} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material/icon';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes), provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideAppInitializer(() => {
+      const iconRegistry = inject(MatIconRegistry);
+      const defaultFontSetClasses = iconRegistry.getDefaultFontSetClass();
+      const outlinedFontSetClasses = defaultFontSetClasses
+        .filter((fontSetClass) => fontSetClass !== 'material-icons')
+        .concat(['material-symbols-rounded']);
+      iconRegistry.setDefaultFontSetClass(...outlinedFontSetClasses);
+    })
   ]
 };

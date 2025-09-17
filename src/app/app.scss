@@ -1,13 +1,14 @@
 header {
   display: flow-root;
   background-color: var(--mat-sys-primary-container);
+  padding-block: 3rem;
 }
 
 h1 {
   font: var(--mat-sys-display-large);
   text-align: center;
   margin-inline: auto;
-  margin-block-start: 3rem;
+  margin-block-start: 0;
 }
 
 header p {
@@ -17,20 +18,24 @@ header p {
   text-wrap: balance;
 }
 
-table {
-  border-collapse: collapse;
-  td, th {
-    border: 1px solid black;
-    padding: .5em;
-  }
+main {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-block: 3rem;
+}
+
+.file-picker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.download-row {
+  margin-block: 1rem;
 }
 
 .form-group {
   display: flex;
   gap: .5rem;
   align-items: center;
-}
-
-.submit-row {
-  margin-block-start: 1rem;
 }

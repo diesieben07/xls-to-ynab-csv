@@ -5,6 +5,7 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 @use "@fontsource-variable/roboto";
+@use "@fontsource-variable/material-symbols-rounded";
 
 html {
   @include mat.theme((
@@ -39,4 +40,18 @@ body { margin: 0; font-family: "Roboto Variable", "Helvetica Neue", sans-serif; 
 
 a {
   color: var(--mat-sys-tertiary);
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded Variable';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }

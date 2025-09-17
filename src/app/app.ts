@@ -2,12 +2,12 @@ import {Component, ElementRef, inject, signal, viewChild} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {type RawTransaction, XlsProcessor} from './xls-processor';
 import {MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTextColumn} from '@angular/material/table';
-import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, FormsModule, MatTable, MatTextColumn, MatHeaderRowDef, MatRowDef, MatHeaderRow, MatRow, MatFormField, MatLabel, MatInput, MatButton],
+  imports: [ReactiveFormsModule, FormsModule, MatTable, MatTextColumn, MatHeaderRowDef, MatRowDef, MatHeaderRow, MatRow, MatButton, MatIcon],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
