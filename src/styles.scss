@@ -6,7 +6,7 @@
 @use '@angular/material' as mat;
 @use '@fontsource-variable/roboto';
 @use '@fontsource-variable/material-symbols-rounded';
-@use 'app/styles/theme-colors' as custom-theme;
+@use 'styles/theme-colors' as custom-theme;
 
 html {
   @include mat.theme(
