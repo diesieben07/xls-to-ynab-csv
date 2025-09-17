@@ -6,13 +6,14 @@
 @use '@angular/material' as mat;
 @use '@fontsource-variable/roboto';
 @use '@fontsource-variable/material-symbols-rounded';
+@use 'app/styles/theme-colors' as custom-theme;
 
 html {
   @include mat.theme(
     (
       color: (
-        primary: mat.$cyan-palette,
-        tertiary: mat.$orange-palette,
+        primary: custom-theme.$primary-palette,
+        tertiary: custom-theme.$tertiary-palette,
       ),
       typography: 'Roboto Variable',
       density: 0,
