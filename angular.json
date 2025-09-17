@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "amazon-visa-xls-to-ynab-csv": {
+    "xls-to-ynab-csv": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "amazon-visa-xls-to-ynab-csv:build:production"
+              "buildTarget": "xls-to-ynab-csv:build:production"
             },
             "development": {
-              "buildTarget": "amazon-visa-xls-to-ynab-csv:build:development"
+              "buildTarget": "xls-to-ynab-csv:build:development"
             }
           },
           "defaultConfiguration": "development"
