@@ -1,3 +1,10 @@
+:host {
+  display: grid;
+  min-height: 100%;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+}
+
 header {
   display: flow-root;
   background-color: var(--mat-sys-primary-container);
@@ -19,6 +26,7 @@ header p {
 }
 
 main {
+  width: 100%;
   max-width: 1080px;
   margin-inline: auto;
   padding-block: 3rem;
@@ -38,4 +46,9 @@ main {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+
+footer {
+  margin: 2rem;
+  text-align: center;
 }
